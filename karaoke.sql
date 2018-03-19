@@ -35,17 +35,19 @@ CREATE TABLE guests (
 
 INSERT INTO rooms (name, capacity, price_per_person, till) VALUES ('Room 1', 4, 10, 0);
 
-INSERT INTO songs (name, artist) VALUES ('Wilson (Expensive Mistakes)', 'Fall Out Boy');
-INSERT INTO songs (name, artist) VALUES ('Champagne for My Real Friends, Real Pain for My Sham Friends', 'Fall Out Boy');
-INSERT INTO songs (name, artist) VALUES ('Headfirst Slide into Cooperstown on a Bad Bet', 'Fall Out Boy');
-INSERT INTO songs (name, artist) VALUES ('Books from Boxes', 'Maximo Park');
-INSERT INTO songs (name, artist) VALUES ('Paper Wings', 'Rise Against');
-INSERT INTO songs (name, artist) VALUES ('Bedshaped', 'Keane');
+INSERT INTO songs (name, artist) VALUES
+('Wilson (Expensive Mistakes)', 'Fall Out Boy'),
+('Champagne for My Real Friends, Real Pain for My Sham Friends', 'Fall Out Boy'),
+('Headfirst Slide into Cooperstown on a Bad Bet', 'Fall Out Boy'),
+('Books from Boxes', 'Maximo Park'),
+('Paper Wings', 'Rise Against'),
+('Bedshaped', 'Keane');
 
-INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES ('Marta', 24, 50, 1, 1);
-INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES ('Andrew', 25, 50, 1, 2);
-INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES ('Craig', 17, 50, 1, 3);
-INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES ('David', 25, 50, 1, 4);
+INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES
+('Marta', 24, 50, 1, 1),
+('Andrew', 25, 50, 1, 2),
+('Craig', 17, 50, 1, 3),
+('David', 25, 50, 1, 4);
 
 -- Charging guests for their room
 UPDATE
@@ -62,7 +64,7 @@ SET
 till = (till + 40);
 
 -- Printing the room till to be sure the change happened
-SELECT * FROM rooms ORDER BY id;
+SELECT * FROM rooms;
 
 -- Showing the catalogue of rooms
 SELECT * FROM songs ORDER BY name;
@@ -71,4 +73,4 @@ SELECT * FROM songs ORDER BY name;
 SELECT (name, age, wallet) FROM guests ORDER BY name;
 
 -- Printing only songs by Fall Out Boy sorted by id
-SELECT * FROM songs WHERE artist = 'Fall Out Boy' ORDER BY id;
+SELECT * FROM songs WHERE artist = 'Fall Out Boy' ORDER BY name;
