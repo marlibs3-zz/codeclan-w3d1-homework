@@ -37,6 +37,7 @@ INSERT INTO rooms (name, capacity, price_per_person, till) VALUES ('Room 1', 4, 
 
 INSERT INTO songs (name, artist) VALUES ('Wilson (Expensive Mistakes)', 'Fall Out Boy');
 INSERT INTO songs (name, artist) VALUES ('Champagne for My Real Friends, Real Pain for My Sham Friends', 'Fall Out Boy');
+INSERT INTO songs (name, artist) VALUES ('Headfirst Slide into Cooperstown on a Bad Bet', 'Fall Out Boy');
 INSERT INTO songs (name, artist) VALUES ('Books from Boxes', 'Maximo Park');
 INSERT INTO songs (name, artist) VALUES ('Paper Wings', 'Rise Against');
 INSERT INTO songs (name, artist) VALUES ('Bedshaped', 'Keane');
@@ -48,18 +49,20 @@ INSERT INTO guests (name, age, wallet, in_room, fav_song) VALUES ('David', 25, 5
 
 -- Charging guests for their room
 UPDATE
-  guests
+guests
 SET
-  wallet = (wallet - 10)
+wallet = (wallet - 10)
 WHERE
-  in_room = 1;
+in_room = 1;
+
 -- Adding money received to till (till is in the room even though that is not very accurate)
 UPDATE
-  rooms
+rooms
 SET
-  wallet = (wallet - 10)
-WHERE
-  in_room = 1;
+till = (till + 40);
+
+-- Printing the room till to be sure the change happened
+SELECT * FROM rooms ORDER BY id;
 
 -- Showing the catalogue of rooms
 SELECT * FROM songs ORDER BY name;
